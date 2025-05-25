@@ -1,0 +1,10 @@
+/target/
+/test-output/
+/test-output/../
+.settings/
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so

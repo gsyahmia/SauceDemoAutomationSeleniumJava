@@ -6,13 +6,10 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import elementsUI.LoginPageUI;
 
 public class CommonLibrary {
 	
@@ -22,8 +19,6 @@ public class CommonLibrary {
 	public CommonLibrary(WebDriver driver) {
 		this.driver = driver;
 	}
-	
-	LoginPageUI loginUI = new LoginPageUI();
 	
 	public void visit_page(String url) {
 		driver.get(url);
@@ -49,18 +44,19 @@ public class CommonLibrary {
 		driver.findElement(By.xpath("//div[normalize-space()='"+text+"']"));
 	}
 	
-//	public void alertHandling() {
-//		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//		wait.until(ExpectedConditions.alertIsPresent());
-//		
-//		driver.switchTo().alert().accept();
-//	}
+	public void alertHandling() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.alertIsPresent());
+		
+		driver.switchTo().alert().accept();
+	}
 
-	
 	public void scrollDown()throws InterruptedException{
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,250)");
 	}
 	
-	
+	public void closeBrowser() {
+		driver.close();
+	}
 }

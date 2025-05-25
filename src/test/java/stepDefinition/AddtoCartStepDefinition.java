@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 import elementsUI.ProductsPageUI;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import library.CommonLibrary;
 import utils.TestContext;
@@ -33,8 +34,6 @@ public class AddtoCartStepDefinition {
 	public void add_item_one_to_cart(String item) {
 		commonLib.verifyDynamicText(item);
 		
-		System.out.println("ContainsValue : "+item_map().containsValue(item));
-		
 		if(item.equalsIgnoreCase("Sauce Labs Backpack")){
 			commonLib.click(productUI.btn_cart_backpack);
 		}
@@ -50,5 +49,28 @@ public class AddtoCartStepDefinition {
 		commonLib.click(productUI.btn_cart);
 		commonLib.verifyDynamicText(item);
 		//also verify the price is correct
+	}
+	
+	
+	
+	@When("^User add (.+) item data to cart$")
+	public void user_input_name_and_password(String item) {
+		commonLib.verifyDynamicText(item);
+		
+		System.out.println("ContainsValue : "+item_map().containsValue(item));
+		
+		if(item.equalsIgnoreCase("Sauce Labs Backpack")){
+			commonLib.click(productUI.btn_cart_backpack);
+		}
+		else if(item.equalsIgnoreCase("Sauce Labs Fleece Jacket")){
+			commonLib.click(productUI.btn_cart_flee_jacket);
+		}
+	}
+	
+	@Then("^User could verify the item data (.+) is displayed in the cart page$")
+	public void user_verify_the_item_is_displayed_in_the_cart_page(String item) {
+		
+		commonLib.click(productUI.btn_cart);
+		commonLib.verifyDynamicText(item);
 	}
 }

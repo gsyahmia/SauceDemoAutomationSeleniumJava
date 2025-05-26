@@ -1,8 +1,4 @@
 package stepDefinition;
-
-
-import org.testng.annotations.AfterTest;
-
 import io.cucumber.java.After;
 import io.cucumber.java.BeforeAll;
 import library.CommonLibrary;

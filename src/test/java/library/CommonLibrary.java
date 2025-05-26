@@ -6,6 +6,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -31,7 +32,10 @@ public class CommonLibrary {
 	public void click(By locator) {
 		driver.findElement(locator).click();
 	}
-	
+	public String getTextValue(By locator) {
+		String txt = driver.findElement(locator).getText();
+		return txt;
+	}
 	public void elementIsDisplayed(By locator) {
 		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -57,6 +61,6 @@ public class CommonLibrary {
 	}
 	
 	public void closeBrowser() {
-		driver.close();
+		driver.quit();
 	}
 }

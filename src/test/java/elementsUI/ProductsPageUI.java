@@ -14,8 +14,8 @@ public class ProductsPageUI {
 	public By side_bar_btn_about = By.id("about_sidebar_link");
 	public By btn_book_demo = By.xpath("//button[normalize-space()='Book a demo']");
 	public By logo_sauceLabs_about = By.xpath("(//img[@alt='Saucelabs'])[1]");
-	
-	
-	
+	public By txt_item_1_price = By.xpath("//div[@class='inventory_list']//div[1]//div[2]//div[2]//div[1]");
+	public By txt_item_2_price = By.xpath("//*[@id='inventory_container']/div/div[4]/div[2]/div[2]/div");
+	public By txt_item_price_cart = By.xpath("//div[@class='inventory_item_price']");
 	
 }
